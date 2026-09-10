@@ -1,0 +1,3 @@
+question,a,b,c,d,correct,explanation
+"What does CIA stand for?","Confidentiality, Integrity, Availability","Control, Identity, Access","Cyber, Intelligence, Analysis","None","A","The CIA triad is Confidentiality, Integrity and Availability."
+"Which protocol commonly provides secure web traffic?","HTTP","HTTPS","FTP","Telnet","B","HTTPS protects web traffic using TLS."

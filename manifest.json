@@ -1,0 +1,13 @@
+{
+  "name":"MTest Local",
+  "short_name":"MTest",
+  "id":"./",
+  "start_url":"./",
+  "scope":"./",
+  "display":"standalone",
+  "orientation":"any",
+  "background_color":"#f4f6f8",
+  "theme_color":"#ffffff",
+  "description":"Offline local test and question-bank application",
+  "categories":["education","productivity"]
+}
