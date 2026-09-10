@@ -6,5 +6,6 @@ export const add=(n,v)=>new Promise((res,rej)=>{const r=store(n,'readwrite').add
 export const put=(n,v)=>new Promise((res,rej)=>{const r=store(n,'readwrite').put(v);r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)});
 export const remove=(n,id)=>new Promise((res,rej)=>{const r=store(n,'readwrite').delete(id);r.onsuccess=()=>res();r.onerror=()=>rej(r.error)});
 export const questionsFor=async bankId=>(await all('questions')).filter(q=>q.bankId===bankId);
+export async function deleteBankCascade(bankId){const qs=await questionsFor(bankId);for(const q of qs)await remove('questions',q.id);await remove('banks',bankId)}
 export async function backup(){return {version:1,banks:await all('banks'),questions:await all('questions'),attempts:await all('attempts')}}
 export async function restore(data){for(const n of ['banks','questions','attempts']){await new Promise((res,rej)=>{const r=store(n,'readwrite').clear();r.onsuccess=res;r.onerror=()=>rej(r.error)});for(const v of(data[n]||[]))await put(n,v)}}
